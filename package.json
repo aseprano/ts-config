@@ -1,0 +1,41 @@
+{
+  "name": "@darkbyte/ts-config",
+  "description": "Typescript library to handle configuration",
+  "version": "0.0.1",
+  "author": "Herr Doktor",
+  "homepage": "https://github.com/aseprano/ts-config",
+  "license": "ISC",
+  "keywords": [
+    "saga",
+    "distributed",
+    "transaction",
+    "compensate",
+    "compensation"
+  ],
+  "readme": "./README.md",
+  "scripts": {
+    "test": "jasmine-ts",
+    "test:live": "nodemon --exec 'jasmine-ts'",
+    "coverage": "nyc npm run test report --reporter=text-lcov | coveralls",
+    "build": "tsc -p .",
+    "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
+    "start": "ts-node src/index.ts"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "@types/jasmine": "^3.4.0",
+    "coveralls": "^3.0.6",
+    "jasmine": "^3.5.0",
+    "jasmine-ts": "^0.3.0",
+    "nyc": "^14.1.1",
+    "ts-mockito": "^2.5.0",
+    "ts-node": "^8.5.4",
+    "typescript": "^3.7.2"
+  },
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:aseprano/ts-config.git"
+  }
+}
