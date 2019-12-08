@@ -15,7 +15,7 @@
   "readme": "./README.md",
   "scripts": {
     "test": "jasmine-ts",
-    "test:live": "nodemon --exec 'jasmine-ts'",
+    "test:live": "nodemon --watch 'src' --watch 'tests' --ext 'ts' --exec 'jasmine-ts'",
     "coverage": "nyc npm run test report --reporter=text-lcov | coveralls",
     "build": "tsc -p .",
     "build:live": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
