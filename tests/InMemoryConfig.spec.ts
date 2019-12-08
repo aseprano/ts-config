@@ -2,13 +2,21 @@ import { InMemoryConfig } from "../src/impl/InMemoryConfig";
 
 describe('InMemoryConfig', () => {
 
-    it('can be set a value', async () => {
+    it('can set a value', async () => {
         const cfg = new InMemoryConfig();
 
         cfg.set('key', 10);
 
         expect(await cfg.has('key')).toEqual(true);
         expect(await cfg.get('key')).toEqual(10);
+    });
+
+    it('deletes an item with an undefined value', async () => {
+        const cfg = new InMemoryConfig();
+
+        cfg.set('key', 10);
+        cfg.set('key', undefined);
+        expect(await cfg.has('key')).toEqual(false);
     });
 
     it('returns false if has() does not find the value', async () => {
@@ -27,19 +35,6 @@ describe('InMemoryConfig', () => {
         expect(await cfg.get('foo')).toEqual(10);
         expect(await cfg.get('bar')).toEqual(11);
         expect(await cfg.get('baz')).toBeUndefined();
-    });
-
-    it('can delete an item', async () => {
-        const cfg = new InMemoryConfig();
-        cfg.set('foo', 10);
-        cfg.unset('foo');
-        expect(await cfg.has('foo')).toEqual(false);
-    });
-
-    it('returns true if an item exists with an undefined value', async () => {
-        const cfg = new InMemoryConfig();
-        cfg.set('foo', undefined);
-        expect(await cfg.has('foo')).toEqual(true);
     });
 
 });
