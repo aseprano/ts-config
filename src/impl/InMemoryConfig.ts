@@ -17,12 +17,12 @@ export class InMemoryConfig implements Config {
         });
     }
     
-    has(param: string): Promise<boolean> {
-        return Promise.resolve(this.cfg.has(param));
+    async has(param: string): Promise<boolean> {
+        return this.cfg.has(param);
     }
     
-    get(param: string): Promise<any> {
-        return Promise.resolve(this.cfg.get(param));
+    async get(param: string): Promise<any> {
+        return this.cfg.get(param);
     }
 
 }
