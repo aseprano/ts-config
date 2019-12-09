@@ -37,4 +37,9 @@ describe('InMemoryConfig', () => {
         expect(await cfg.get('baz')).toBeUndefined();
     });
 
+    it('returns the default value if the requested parameter does not exist', async () => {
+        const config = new InMemoryConfig();
+        expect(await config.get('foo', 10)).toEqual(10);
+    });
+
 });

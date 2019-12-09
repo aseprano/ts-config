@@ -21,8 +21,9 @@ export class InMemoryConfig implements Config {
         return this.cfg.has(param);
     }
     
-    async get(param: string): Promise<any> {
-        return this.cfg.get(param);
+    async get(param: string, default_value?: any): Promise<any> {
+        const val = this.cfg.get(param);
+        return val !== undefined ? val : default_value;
     }
 
 }
