@@ -6,11 +6,10 @@
   "homepage": "https://github.com/aseprano/ts-config",
   "license": "ISC",
   "keywords": [
-    "saga",
-    "distributed",
-    "transaction",
-    "compensate",
-    "compensation"
+    "config",
+    "configuration",
+    "env",
+    "cache"
   ],
   "readme": "./README.md",
   "scripts": {
