@@ -1,1 +1,1 @@
-![version](https://img.shields.io/npm/v/@darkbyte/ts-sagas?style=flat-square) ![build_status](https://img.shields.io/travis/aseprano/ts-sagas?style=flat-square) ![code_coverage](https://img.shields.io/coveralls/github/aseprano/ts-sagas?style=flat-square)
+![version](https://img.shields.io/npm/v/@darkbyte/ts-config?style=flat-square) ![build_status](https://img.shields.io/travis/aseprano/ts-config?style=flat-square) ![code_coverage](https://img.shields.io/coveralls/github/aseprano/ts-config?style=flat-square)
