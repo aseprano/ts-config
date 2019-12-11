@@ -1,1 +1,1 @@
-//export * from './src/default-exports';
+export * from './src/default-exports';
