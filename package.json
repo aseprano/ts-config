@@ -22,7 +22,8 @@
   },
   "dependencies": {
     "@types/redis": "^2.8.14",
-    "redis": "^2.8.0"
+    "redis": "^2.8.0",
+    "yaml": "^1.7.2"
   },
   "devDependencies": {
     "@types/jasmine": "^3.4.0",
