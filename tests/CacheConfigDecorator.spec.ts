@@ -10,6 +10,10 @@ describe('CacheConfigDecorator', () => {
         bar: 12
     });
 
+    it('cannot be built with a negative ttl', () => {
+        expect(() => new CacheConfigDecorator(memcfg, -1)).toThrow();
+    })
+
     it('fetches data from the inner config', async () => {
         const cache = new CacheConfigDecorator(memcfg);
         expect(await cache.get('foo')).toEqual(10);
