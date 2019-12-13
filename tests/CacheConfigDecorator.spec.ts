@@ -12,7 +12,12 @@ describe('CacheConfigDecorator', () => {
 
     it('cannot be built with a negative ttl', () => {
         expect(() => new CacheConfigDecorator(memcfg, -1)).toThrow();
-    })
+    });
+
+    it('returns false if queried for a non existing key', async () => {
+        const cache = new CacheConfigDecorator(memcfg, 10);
+        expect(await cache.has('moo')).toEqual(false);
+    });
 
     it('fetches data from the inner config', async () => {
         const cache = new CacheConfigDecorator(memcfg);
@@ -46,6 +51,11 @@ describe('CacheConfigDecorator', () => {
             expect(numberOfInvocation).toEqual(2, 'Second get failed'); // cache invalidated
             done();
         }, 3000);
+    });
+
+    it('returns undefined if the inner config returns undefined', async () => {
+        const cfg = new CacheConfigDecorator(memcfg, 100);
+        expect(await cfg.get('moo')).toBeUndefined();
     });
 
 });
