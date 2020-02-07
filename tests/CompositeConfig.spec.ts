@@ -122,5 +122,12 @@ describe('CompositeConfig', () => {
         expect(callSequence).toEqual([1, 2]);
     });
 
+    it('returns the default_value if none all the configs return undefined', async () => {
+        const config = new CompositeConfig(new InMemoryConfig())
+            .addConfigAtEnd(new InMemoryConfig());
+
+        const data = await config.get('foo', 10);
+        expect(data).toEqual(10);
+    });
 
 })

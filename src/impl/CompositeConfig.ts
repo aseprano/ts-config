@@ -40,7 +40,7 @@ export class CompositeConfig implements Config {
             ++iConfig;
         }
         
-        return value;
+        return value !== undefined ? value : default_value;
     }
 
 }
