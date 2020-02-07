@@ -1,7 +1,7 @@
 {
   "name": "@darkbyte/ts-config",
   "description": "Typescript library to handle configuration",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": "Herr Doktor",
   "homepage": "https://github.com/aseprano/ts-config",
   "license": "ISC",
