@@ -55,7 +55,7 @@ export class CacheConfigDecorator implements Config {
             .then((val) => val !== undefined);
     }
     
-    async get(key: string): Promise<any> {
+    async get(key: string, default_value?: any): Promise<any> {
         const v = this.fromCache(key);
 
         if (v !== undefined) {
@@ -63,7 +63,7 @@ export class CacheConfigDecorator implements Config {
         }
         
         return this.innerConfig
-            .get(key)
+            .get(key, default_value)
             .then((val) => {
                 if (val !== undefined) {
                     this.hold(key, val);

@@ -1,6 +1,6 @@
 import { CacheConfigDecorator } from "../src/impl/CacheConfigDecorator";
 import { InMemoryConfig } from "../src/impl/InMemoryConfig";
-import { mock, when, anyString, instance } from 'ts-mockito';
+import { mock, when, anyString, instance, anything } from 'ts-mockito';
 
 describe('CacheConfigDecorator', () => {
 
@@ -28,7 +28,7 @@ describe('CacheConfigDecorator', () => {
         let numberOfInvocation = 0;
         const fakeCache = mock(InMemoryConfig);
 
-        when(fakeCache.get(anyString()))
+        when(fakeCache.get(anyString(), anything()))
             .thenCall(() => {
                 return new Promise((resolve) => {
                     numberOfInvocation++;
