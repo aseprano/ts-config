@@ -42,12 +42,12 @@ export class CacheConfigDecorator implements Config {
     private fromCache(key: string): any {
         let val = this.cache.get(key);
 
-        if (val !== undefined && val.expired()) {
+        if (val && val.expired()) {
             this.cache.delete(key);
-            val = undefined;
+            return undefined;
+        } else {
+            return val ? val.getValue() : undefined;
         }
-
-        return val === undefined ? val : val.getValue();
     }
 
     async has(param: string): Promise<boolean> {

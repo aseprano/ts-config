@@ -8,8 +8,9 @@ export class EnvVariablesConfig implements Config {
         return this.env.hasOwnProperty(param);
     }
     
-    async get(param: string): Promise<any> {
-        return this.env[param];
+    async get(param: string, default_value?: any): Promise<any> {
+        const value = this.env[param];
+        return value !== undefined ? value : default_value;
     }
 
 }

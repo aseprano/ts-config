@@ -58,4 +58,10 @@ describe('CacheConfigDecorator', () => {
         expect(await cfg.get('moo')).toBeUndefined();
     });
 
+    it('returns default value from inner config', async () => {
+        const innerConfig = new InMemoryConfig();
+        const cachedConfig = new CacheConfigDecorator(innerConfig, 10);
+        expect(await cachedConfig.get('foo', 10)).toEqual(10);
+    });
+
 });

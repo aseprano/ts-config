@@ -29,7 +29,7 @@ export class RedisConfig implements Config {
                 if (err) {
                     reject(err);
                 } else {
-                    resolve(data === null ? default_value : data.toString());
+                    resolve(data !== null ? data.toString() : default_value);
                 }
             });
         });
