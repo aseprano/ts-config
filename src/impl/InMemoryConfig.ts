@@ -1,29 +1,26 @@
 import { Config } from "../Config";
 
 export class InMemoryConfig implements Config {
-    private cfg = new Map<string,any>()
+    private values = new Map<string,any>()
 
-    set(param: string, value: any): void {
+    public set(param: string, value: any): void {
         if (value === undefined) {
-            this.cfg.delete(param);
+            this.values.delete(param);
         } else {
-            this.cfg.set(param, value);
+            this.values.set(param, value);
         }
     }
 
-    setMany(params: {[key: string]: any}): void {
-        Object.keys(params).forEach((k) => {
-            this.set(k, params[k]);
-        });
+    public setMany(params: {[key: string]: any}): void {
+        Object.keys(params).forEach((paramName) => this.set(paramName, params[paramName]));
     }
     
-    async has(param: string): Promise<boolean> {
-        return this.cfg.has(param);
+    public has(param: string): boolean {
+        return this.values.has(param);
     }
     
-    async get(param: string, default_value?: any): Promise<any> {
-        const val = this.cfg.get(param);
-        return val !== undefined ? val : default_value;
+    public get<T = any>(param: string, default_value?: T): T|undefined {
+        return this.values.get(param) ?? default_value;
     }
 
 }

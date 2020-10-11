@@ -1,20 +1,13 @@
 import { Config } from "../Config";
 
 export class NullConfig implements Config {
-    private value: Promise<any>;
-    private hasValue: Promise<boolean>;
 
-    constructor() {
-        this.value = Promise.resolve(undefined);
-        this.hasValue = Promise.resolve(false);
-    }
-
-    async has(param: string): Promise<boolean> {
-        return this.hasValue;
+    public has(param: string): boolean {
+        return false;
     }
     
-    get(param: string): Promise<any> {
-        return this.value;
+    public get<T>(param: string, default_value?: T): T|undefined {
+        return default_value || undefined;
     }
 
 }

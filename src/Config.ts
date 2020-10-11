@@ -1,7 +1,7 @@
 export interface Config {
 
-    has(param: string): Promise<boolean>;
+    has(param: string): boolean;
 
-    get(param: string, default_value?: any): Promise<any>;
+    get<T = any>(param: string, default_value?: T): T|undefined;
 
 }
