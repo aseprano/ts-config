@@ -2,9 +2,9 @@ import { ConfigBuilder } from "../src/ConfigBuilder";
 import { InMemoryConfig } from "../src/impl/InMemoryConfig";
 
 describe('ConfigBuilder', () => {
-    const config = ConfigBuilder.withOutmostConfig(new InMemoryConfig({age: 100, gender: 'male', level: 9000}))
+    const config = ConfigBuilder.withOutmostConfig(new InMemoryConfig({age: 80}))
         .thatFallbacksTo(new InMemoryConfig({age: 90, gender: 'hybrid'}))
-        .thatFallbacksTo(new InMemoryConfig({age: 80}))
+        .thatFallbacksTo(new InMemoryConfig({age: 100, gender: 'male', level: 9000}))
         .build();
 
     it('builds the proper composition', () => {
