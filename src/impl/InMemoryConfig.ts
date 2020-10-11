@@ -3,6 +3,12 @@ import { Config } from "../Config";
 export class InMemoryConfig implements Config {
     private values = new Map<string,any>()
 
+    constructor(params?: {[key: string]: any}) {
+        if (params) {
+            this.setMany(params);
+        }
+    }
+    
     public set(param: string, value: any): void {
         if (value === undefined) {
             this.values.delete(param);

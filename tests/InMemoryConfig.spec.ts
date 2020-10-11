@@ -2,6 +2,12 @@ import { InMemoryConfig } from "../src/impl/InMemoryConfig";
 
 describe('InMemoryConfig', () => {
 
+    it('can be instantiated with some starting values', () => {
+        const config = new InMemoryConfig({age: 100, gender: 'male'});
+        expect(config.get<number>('age')).toBe(100);
+        expect(config.get<string>('gender')).toBe('male');
+    });
+
     it('can set a value', () => {
         const cfg = new InMemoryConfig();
 
